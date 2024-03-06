@@ -15,15 +15,15 @@ const JobSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ["interview", "declined", "pending"],
-      default: pending,
+      default: "pending",
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
       ref: "User",
-      required: [true, "Please provide position"],
+      required: [true, "Please provide user"],
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.models("Job", JobSchema);
+module.exports = mongoose.model("Job", JobSchema);
